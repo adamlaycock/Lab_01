@@ -29,9 +29,6 @@ _How many tourist attractions are there in the data set?_
 ```{r Q1}
 visitors %>% count()
 ```
-```{r viewing}
-arrange(visitors, desc(is.na(n_2022)))
-```
 
 ### Exercise a.
 
@@ -80,9 +77,9 @@ visitors %>% arrange(desc(n_2022))
 
 _What are the top 10 most visited attractions in 2021?_
 ```{r Ex_c}
-#visitors %>% 
-#  arrange(____(____)) %>%
-#  head(n = ____)
+visitors %>% 
+  arrange(desc(n_2021)) %>%
+  head(n = 10)
 ```
 
 ## Question 4
@@ -99,7 +96,7 @@ visitors %>% filter(attraction == "National Museum of Scotland")
 _Which attraction had exactly 565,772 visitors in 2022?_
 
 ```{r Ex_d}
-#visitors %>% filter(___ == ____)
+visitors %>% filter(n_2022 == 565772)
 ```
 
 ### Exercise e.
@@ -107,9 +104,9 @@ _Which attraction had exactly 565,772 visitors in 2022?_
 _How many attraction had more than 1 million visitors in 2022?_
 
 ```{r Ex_e}
-#visitors %>% 
-#  filter(____) %>%
-#  count()
+visitors %>% 
+  filter(n_2022 > 1e6) %>%
+  count(n_2022)
 ```
 
 ## Question 5
