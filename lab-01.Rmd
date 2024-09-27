@@ -169,11 +169,11 @@ visitors %>%
 _Perform the same calculation for the 2021 admissions data._
 
 ```{r Ex_h}
-#visitors %>% 
-#  ______(
-#    __________,
-#    __________
-#  )
+visitors %>% 
+ summarize(
+    mean_2022 = mean(n_2022, na.rm=TRUE),
+    med_2022 = median(n_2022, na.rm=TRUE)
+  )
 ```
 
 All values in the output are `NA`!
