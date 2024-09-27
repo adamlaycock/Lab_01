@@ -29,6 +29,9 @@ _How many tourist attractions are there in the data set?_
 ```{r Q1}
 visitors %>% count()
 ```
+```{r viewing}
+arrange(visitors, desc(is.na(n_2022)))
+```
 
 ### Exercise a.
 
@@ -37,7 +40,7 @@ _Create a frequency table of the number of tourist attractions in the data set b
 ```{r Ex_a}
 # Delete the comment '#' symbol at the start of the next line and complete the code. 
 
-#visitors %>% count(_____)
+visitors %>% count(region)
 ```
 
 ### Exercise b.
@@ -47,7 +50,7 @@ _Create a frequency table by `admission` and `setting`._
 ```{r Ex_b}
 # Delete the comment '#' symbol at the start of the next line and complete the code.
 
-#visitors %>% count(_____, _____)
+visitors %>% count(admission, setting)
 ```
 
 
