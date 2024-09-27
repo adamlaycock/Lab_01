@@ -182,16 +182,13 @@ All values in the output are `NA`!
 
 _What does `NA` stand for and why are you getting this as your answer to the previous question._
 
-**Write your answer here**
-
-
-
+NA stands for not available and it's because NA could be any value (unknown), so as a consequence the median and mean are also unknown.
 
 ### Exercise j.
 
 _Look at the help pages for the `mean()` and `median()` commands to see what the input argument `na.rm` does. Edit your code from exercise h so that it computes the summary statistics where data is available._
 
-**Write your answer here**
+Removes NA from the summary calculations.
 
 
 
@@ -213,7 +210,7 @@ visitors %>%
 
 _Observe in question 6 that the mean statistics across all settings are much larger than the corresponding median statistics. Discuss in your group what this suggests about the data._
 
-**Write your answer here**
+There are a couple of attractions with very high visitor numbers compared to the rest of the dataset.
 
 
 
@@ -246,8 +243,10 @@ _How many tourist attractions are there in each of the 4 nations? From this, dis
 
 
 ```{r Ex_l}
-#________ %>%
-#  ______(_______)
+visitors_with_nations %>%
+  group_by(nation) %>%
+    summarise(n_attractions = n_distinct(attraction))
+  
 ```
 
 
