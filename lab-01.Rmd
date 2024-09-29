@@ -264,18 +264,17 @@ visitors_with_nations %>%
 
 ```
 
-```{r}
-visitors_with_nations %>%
-  filter(nation == "Wales" & admission == "Members")
-```
-
 ### Exercise n.
 
 _Calculate the percentage change in visitor admissions from 2021 to 2022. Of the tourist attractions in Scotland, sort into increasing numerical order the types of admission charges based on the mean percentage change in visitor numbers._
 
 ```{r Ex_n}
-# Write your code here
+visitor_change <- visitors_with_nations %>%
+  mutate(percentage_change = (((n_2022 - n_2021) / n_2021) * 100))
 
-
-
+visitor_change %>%
+  filter(nation == "Scotland") %>%
+    group_by(admission) %>%
+      summarise(percentage_change_visitors = mean(percentage_change, na.rm = TRUE)) %>%
+        arrange(percentage_change_visitors)
 ```
